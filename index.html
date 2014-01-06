@@ -1,0 +1,18 @@
+<html>
+ <head>
+  <script src="jquery.js"></script>
+  <script src="smention.js"></script>
+  <link href="smention.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <input id="text"/>
+  <textarea id="text" cols="48" rows="14"></textarea>
+  <script>
+  $(document).ready(function(){
+   $("#text").smention("data.json",{
+    avatar:true,
+   });
+  });
+  </script>
+ </body>
+</html>
