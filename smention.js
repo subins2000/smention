@@ -28,7 +28,7 @@
     }
     localStorage['smlto']=t.val().substring(lc).split(/\(|\)|\*| /)[0];
     localStorage['smloc']=parseFloat(lc) + "," + (parseFloat(lc)+localStorage['smlto'].length);
-    if((parseFloat(lc)+localStorage['smlto'].length) < t[0].selectionStart){
+    if((parseFloat(lc)+localStorage['smlto'].length) < t[0].selectionStart || localStorage['smlto']==""){
      t.unSmen();
     }
     if(e.keyCode==16 || e.keyCode==50){down[e.keyCode] = false;}
@@ -42,8 +42,8 @@
     $(this).bind("keyup",function(e){
      t=$(this);
      smlto=localStorage['smlto'].replace("@","");
-     if(options.extraParams!=undefined){
-      data=$.merge({q:smlto},options.extraParams);
+     if(typeof(options.extraParams)=="object"){
+      data=$.extend({q:smlto},options.extraParams);
      }else{
       data={q:smlto};
      }
@@ -64,7 +64,7 @@
   qlist="";
   $.each(obj,function(i,elem){
    whb=i%2 == 0 ? "dark":"";
-   qlist+="<div id='"+elem.id+"' class='sitem "+whb+"'>";
+   qlist+="<div id='"+elem.id+"' class='sitem "+whb+"' title='"+elem.name+"'>";
     if(options.avatar==true){
      qlist+="<img class='avatar' height='24' width='24' src='"+elem.avatar+"'/>";
     }
@@ -91,10 +91,10 @@ $(document).ready(function(){
  $("body").on("click",".sm_bar .sitem",function(){
   var id=$(this).attr("id");
   parts=localStorage['smloc'].split(",");
-  start=parts[0]+1;
+  start=parseFloat(parts[0])+1;
   end=parts[1];
   t=$(".sm_bar").data("from");
-  t.val(t.val().replaceBetween(start,end,id+" "));
+  t.val(t.val().replaceBetween(start,end,id));
   $(".sm_bar").hide();
   t.focus();
  });
