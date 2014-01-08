@@ -1,16 +1,9 @@
-<?include("../../posts.php");$id=15;?>
 <!DOCTYPE html>
 <html>
  <head>
-  <script src="//tpalace.com/Demos/local/cdn/js.php"></script>
-  <script src="smention.js"></script>
-  <link href="smention.css" rel="stylesheet"/>
-  <title><?echo$parr[$id]['title'];?></title>
-  <?include('../../track.php');?>
  </head>
  <body>
- <?include('../../top.php');?>
-  <div id="content" style="margin-top:10px;height:100%;">
+  <div id="content">
    <center>
     <h1>jQuery sMention Plugin</h1>
    </center>
@@ -28,7 +21,7 @@
      extraParams:{lk:"a"}
     });
    });
-  </script>
- <?$_GET['url']=$parr[$id]['url'];include("../../footer.php");?>
+   </script>
+  </div>
  </body>
 </html>
