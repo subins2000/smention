@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <script src="smention.js"></script>
+  <link href="smention.css" rel="stylesheet"/>
  </head>
  <body>
   <div id="content">
